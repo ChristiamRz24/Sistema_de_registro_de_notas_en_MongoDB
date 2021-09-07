@@ -18,7 +18,7 @@ contraseña = ""
 #Diseño de la ventana Login
 ventana = tkinter.Tk() #Ventana de la aplicación
 ventana.title("Ingresar") #Título de la ventana
-ventana.iconbitmap("C:\\Users\\Jessenia\\Desktop\\Python\\imagenes\\log-in.ico")
+ventana.iconbitmap("C:\\Users\\User\\Desktop\\Python\\imagenes\\log-in.ico")
 ventana.geometry("395x445") #Tamaño de la ventana (Ancho x Largo)
 #ventana.configure(bg = bgColorVentana)
 
@@ -52,7 +52,7 @@ cajaUsuario = tkinter.Entry(ventana, font = "Georgia 15")
 cajaContraseña = tkinter.Entry(ventana, font = "Georgia 15")
 
 #Imágenes
-userImage = ImageTk.PhotoImage(Image.open("C:\\Users\\Jessenia\\Desktop\\Python\\imagenes\\user.png"))
+userImage = ImageTk.PhotoImage(Image.open("C:\\Users\\User\\Desktop\\Python\\imagenes\\user.png"))
 userImageLabel = tkinter.Label(ventana, image = userImage)
 
 #Diseño de la app
