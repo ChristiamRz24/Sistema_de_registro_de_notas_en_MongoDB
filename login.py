@@ -1,4 +1,5 @@
 #Librerías
+import panelDeControl
 import tkinter #Importamos el módulo
 from PIL import ImageTk, Image
 from pymongo import MongoClient, collation
@@ -18,8 +19,8 @@ contraseña = ""
 #Diseño de la ventana Login
 ventana = tkinter.Tk() #Ventana de la aplicación
 ventana.title("Ingresar") #Título de la ventana
-ventana.iconbitmap("C:\\Users\\User\\Desktop\\Python\\imagenes\\log-in.ico")
-ventana.geometry("395x445") #Tamaño de la ventana (Ancho x Largo)
+ventana.iconbitmap(".\\imagenes\\log-in.ico")
+ventana.geometry("390x440") #Tamaño de la ventana (Ancho x Largo)
 #ventana.configure(bg = bgColorVentana)
 
 #Funciones
@@ -27,6 +28,7 @@ ventana.geometry("395x445") #Tamaño de la ventana (Ancho x Largo)
 def entradaDeTexto():
     usuario = cajaUsuario.get()
     contraseña = cajaContraseña.get()
+    guardarDato(usuario) #Guardar nombre de usuario
     #Query para comparar si las credenciales son correctas
     for documento in collection.find({
         "usuario": {
@@ -36,7 +38,15 @@ def entradaDeTexto():
                 "$eq": contraseña
             }
         }):
-            alertaLabel["text"] = "Ingresando..." #Alerta
+            #Abrir ventana 2 (panel de control)
+            panelDeControl.abrirPanelDeControl()
+            ventana.destroy() #Cierra/destruye la ventana
+
+#guardar nombre de usuario en un archivo .txt
+def guardarDato(datoUsuario):
+    archivo = open("username.txt","w") #Creación del archivo
+    archivo.write(datoUsuario)
+    archivo.close() #Cerrar el archivo
 
 #Botón Login
 botonLogin = tkinter.Button(ventana, text = "Ingresar",pady = 15 , width = 30, bg = "#57CC99", font = "Georgia 10", command = entradaDeTexto) #Config del botón
@@ -52,7 +62,7 @@ cajaUsuario = tkinter.Entry(ventana, font = "Georgia 15")
 cajaContraseña = tkinter.Entry(ventana, font = "Georgia 15")
 
 #Imágenes
-userImage = ImageTk.PhotoImage(Image.open("C:\\Users\\User\\Desktop\\Python\\imagenes\\user.png"))
+userImage = ImageTk.PhotoImage(Image.open(".\\imagenes\\user.png"))
 userImageLabel = tkinter.Label(ventana, image = userImage)
 
 #Diseño de la app
