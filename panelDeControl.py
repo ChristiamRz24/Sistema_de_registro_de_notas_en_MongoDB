@@ -1,5 +1,8 @@
 #Librerías
-import agregar
+import agregar #Ventana agregar registros
+import consultar #Ventana consultar registros
+import editar #Ventana editar registros
+import eliminar #Ventana eliminar registros
 import tkinter #Importamos el módulo
 from PIL import ImageTk, Image
 
@@ -8,6 +11,7 @@ def abrirPanelDeControl():
     panelDeControl.title('Panel de control') #Título de la ventana
     panelDeControl.iconbitmap(".\\imagenes\\home.ico")
     panelDeControl.geometry("415x280") #Tamaño de la ventana
+    panelDeControl.resizable(width=0, height=0) #Ventana no resizable
 
     #Abrir y leer archivo .txt
     archivo = open("username.txt") #Ruta del archivo
@@ -20,20 +24,16 @@ def abrirPanelDeControl():
     def obtenerRespuesta(opcionRespuesta):
         #Abrir las ventanas restantes
         if (opcionRespuesta == 1) :
-            print("Ventana agregar")
             agregar.abrirVentanaAgregar()
         else:
             if (opcionRespuesta == 2) :
-                print("Ventana editar")
-                #agregar.abrirVentanaAgregar()
+                editar.abrirVentanaEditar()
             else:
                 if (opcionRespuesta == 3) :
-                    print("Ventana eliminar")
-                    #agregar.abrirVentanaAgregar()
+                    eliminar.abrirVentanaEliminar()
                 else:
                     if (opcionRespuesta == 4) :
-                        print("Ventana consultar")
-                        #agregar.abrirVentanaAgregar()
+                        consultar.abrirVentanaConsultar()
                     else:
                         opcionRespuesta = 0
 

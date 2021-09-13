@@ -21,6 +21,7 @@ ventana = tkinter.Tk() #Ventana de la aplicación
 ventana.title("Ingresar") #Título de la ventana
 ventana.iconbitmap(".\\imagenes\\log-in.ico")
 ventana.geometry("390x440") #Tamaño de la ventana (Ancho x Largo)
+ventana.resizable(width=0, height=0) #Ventana no resizable
 #ventana.configure(bg = bgColorVentana)
 
 #Funciones
