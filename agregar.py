@@ -14,8 +14,24 @@ def abrirVentanaAgregar():
     ventanaAgregar = tkinter.Tk() #Ventana de la aplicación
     ventanaAgregar.title('Agregar registros') #Título de la ventana
     ventanaAgregar.iconbitmap(".\\imagenes\\add.ico")
-    ventanaAgregar.geometry("415x265") #Tamaño de la ventana
-    ventanaAgregar.resizable(width=0, height=0) #Ventana no resizable
+    ventanaAgregar.resizable(width = 0, height = 0) #Ventana no resizable
+
+    #Centrar la ventana en la pantalla
+    def centrarVentana(ventanaAgregar):
+        #Dimensiones de la ventana
+        w = 415 #Ancho
+        h = 265 #Largo
+        #Info de la pantalla
+        sw = ventanaAgregar.winfo_screenwidth()
+        sh = ventanaAgregar.winfo_screenheight()
+        #Definir posición en "x" e "y"
+        x = (sw - w)/2
+        y = (sh - h)/2
+        #Posicionar ventana
+        ventanaAgregar.geometry('%dx%d+%d+%d' % (w, h, x, y))
+
+    #Llamada al método
+    centrarVentana(ventanaAgregar)
 
     #Variables
     nombre = ""

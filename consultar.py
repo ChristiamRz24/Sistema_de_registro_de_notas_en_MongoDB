@@ -11,7 +11,23 @@ collection = db['datos'] #Colección de la base de datos
 ##################################
 
 def abrirVentanaConsultar():
-    panelDeControl = tkinter.Tk() #Ventana de la aplicación
-    panelDeControl.title('Consultar registros') #Título de la ventana
-    panelDeControl.iconbitmap(".\\imagenes\\search.ico")
-    panelDeControl.geometry("415x280") #Tamaño de la ventana
+    ventanaConsultar = tkinter.Tk() #Ventana de la aplicación
+    ventanaConsultar.title('Consultar registros') #Título de la ventana
+    ventanaConsultar.iconbitmap(".\\imagenes\\search.ico")
+
+    #Centrar la ventana en la pantalla
+    def centrarVentana(ventanaConsultar):
+        #Dimensiones de la ventana
+        w = 415 #Ancho
+        h = 265 #Largo
+        #Info de la pantalla
+        sw = ventanaConsultar.winfo_screenwidth()
+        sh = ventanaConsultar.winfo_screenheight()
+        #Definir posición en "x" e "y"
+        x = (sw - w)/2
+        y = (sh - h)/2
+        #Posicionar ventana
+        ventanaConsultar.geometry('%dx%d+%d+%d' % (w, h, x, y))
+    
+    #Llamada al método
+    centrarVentana(ventanaConsultar)

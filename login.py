@@ -20,11 +20,26 @@ contraseña = ""
 ventana = tkinter.Tk() #Ventana de la aplicación
 ventana.title("Ingresar") #Título de la ventana
 ventana.iconbitmap(".\\imagenes\\log-in.ico")
-ventana.geometry("390x449") #Tamaño de la ventana (Ancho x Largo)
-ventana.resizable(width=0, height=0) #Ventana no resizable
 #ventana.configure(bg = bgColorVentana)
 
 #Funciones
+#Centrar la ventana en la pantalla
+def centrarVentana(ventana):
+    #Dimensiones de la ventana
+    w = 390 #Ancho
+    h = 449 #Largo
+    #Info de la pantalla
+    sw = ventana.winfo_screenwidth()
+    sh = ventana.winfo_screenheight()
+    #Definir posición en "x" e "y"
+    x = (sw - w)/2
+    y = (sh - h)/2
+    #Posicionar ventana
+    ventana.geometry('%dx%d+%d+%d' % (w, h, x, y))
+
+#Llamada al método
+centrarVentana(ventana)
+
 #Capturar texto de las cajas
 def entradaDeTexto():
     usuario = cajaUsuario.get()

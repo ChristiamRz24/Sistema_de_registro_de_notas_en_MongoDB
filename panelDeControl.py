@@ -10,8 +10,24 @@ def abrirPanelDeControl():
     panelDeControl = tkinter.Tk() #Ventana de la aplicación
     panelDeControl.title('Panel de control') #Título de la ventana
     panelDeControl.iconbitmap(".\\imagenes\\home.ico")
-    panelDeControl.geometry("415x280") #Tamaño de la ventana
-    panelDeControl.resizable(width=0, height=0) #Ventana no resizable
+    panelDeControl.resizable(width = 0, height = 0) #Ventana no resizable
+
+    #Centrar la ventana en la pantalla
+    def centrarVentana(panelDeControl):
+        #Dimensiones de la ventana
+        w = 415 #Ancho
+        h = 280 #Largo
+        #Info de la pantalla
+        sw = panelDeControl.winfo_screenwidth()
+        sh = panelDeControl.winfo_screenheight()
+        #Definir posición en "x" e "y"
+        x = (sw - w)/2
+        y = (sh - h)/2
+        #Posicionar ventana
+        panelDeControl.geometry('%dx%d+%d+%d' % (w, h, x, y))
+
+    #Llamada al método
+    centrarVentana(panelDeControl)
 
     #Abrir y leer archivo .txt
     archivo = open(".\\documentos\\usuario.txt") #Ruta del archivo
@@ -50,7 +66,7 @@ def abrirPanelDeControl():
     bienvenidaLabel = tkinter.Label(panelDeControl, text = "Bienvenido " + usuario , font = "Georgia 20")
 
     #Diseño de la app
-    bienvenidaLabel.grid(pady = 25, column = 0, row = 0, columnspan = 2)
+    bienvenidaLabel.grid(pady = (18, 25), column = 0, row = 0, columnspan = 2)
     opciones.grid(padx = (20, 0), column = 0, row = 1)
     botonAgregar.grid(padx = (20, 8), pady = (13, 0), column = 0, row = 1)
     botonEditar.grid(padx = 18, pady = (13, 0), column = 1, row = 1)
