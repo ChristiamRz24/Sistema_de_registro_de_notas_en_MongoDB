@@ -14,7 +14,7 @@ def abrirPanelDeControl():
     panelDeControl.resizable(width=0, height=0) #Ventana no resizable
 
     #Abrir y leer archivo .txt
-    archivo = open("username.txt") #Ruta del archivo
+    archivo = open(".\\documentos\\usuario.txt") #Ruta del archivo
     usuario = archivo.read() #Lectura del archivo
 
     #Variables

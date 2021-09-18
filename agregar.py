@@ -64,8 +64,8 @@ def abrirVentanaAgregar():
                         alertaLabel["text"] = "El estudiante ingresado ya existe en la Base de Datos"
                         #Guardamos el dato en una variable de apoyo
                         nombreEncontrado = nombre
-
-                    #Si no existe el registro del estudiante en la BD se guarda el registro
+                    
+                    #Si en la BD no esta registrado el estudiante grabamos los datos
                     if (nombre != nombreEncontrado):
                         #Query de inserción
                         collection.insert_one({
