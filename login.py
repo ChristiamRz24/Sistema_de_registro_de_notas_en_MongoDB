@@ -57,9 +57,10 @@ def entradaDeTexto():
                 "$eq": contraseña
             }
         }):
+            #Cierra/destruye la ventana
+            ventana.destroy()
             #Abrir ventana 2 (panel de control)
             panelDeControl.abrirPanelDeControl()
-            ventana.destroy() #Cierra/destruye la ventana
 
 #guardar nombre de usuario en un archivo .txt
 def guardarDato(ruta, contenido):

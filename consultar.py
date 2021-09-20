@@ -1,6 +1,6 @@
 #Librerías
 import tkinter #Importamos el módulo
-from PIL import ImageTk, Image
+from tkinter import ttk
 from pymongo import MongoClient, collation
 
 ###Conección a la base de datos###
@@ -18,8 +18,8 @@ def abrirVentanaConsultar():
     #Centrar la ventana en la pantalla
     def centrarVentana(ventanaConsultar):
         #Dimensiones de la ventana
-        w = 415 #Ancho
-        h = 265 #Largo
+        w = 493 #Ancho
+        h = 300 #Largo
         #Info de la pantalla
         sw = ventanaConsultar.winfo_screenwidth()
         sh = ventanaConsultar.winfo_screenheight()
@@ -31,3 +31,31 @@ def abrirVentanaConsultar():
     
     #Llamada al método
     centrarVentana(ventanaConsultar)
+
+    #Creación de la tabla
+    tabla = ttk.Treeview(ventanaConsultar, columns = ("#1","#2"))
+    tabla.tag_configure('fuente', font=("Georgia", 11)) #Cambiar la fuente de los registros
+
+    #Query de búsqueda
+    for documento in collection.find({}):
+        tabla.insert('', 0, tag = 'fuente', text = documento['nombre'], values = (documento['nota1'], documento['nota2']))
+
+    #Label
+    titulo = tkinter.Label(ventanaConsultar, text = "Datos de los estudiantes", font = "Georgia 15")
+
+    #ScrollBar
+    verscrlbar = ttk.Scrollbar(ventanaConsultar, orient = "vertical", command = tabla.yview)
+    tabla.configure(yscrollcommand = verscrlbar.set)
+
+    #Diseño de la ventana
+    titulo.grid(pady = 10, row = 0, column = 0, columnspan = 4)
+    tabla.grid(padx = (20, 0), row = 1, column = 0, columnspan = 3)
+    tabla.heading("#0", text = "Nombre") #Indice de la tabla
+    tabla.heading("#1", text = "Nota 1")
+    tabla.heading("#2", text = "Nota 2")
+
+    tabla.column("#0", width = 250)
+    tabla.column("#1", width = 100, anchor = "center")
+    tabla.column("#2", width = 100, anchor = "center")
+
+    verscrlbar.grid(row = 1, column = 4, ipady = 88)

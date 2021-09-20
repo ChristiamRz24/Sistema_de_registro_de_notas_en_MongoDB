@@ -87,7 +87,7 @@ def abrirVentanaEditar():
         else: 
             #Comparamos si el registro existe en la Base de datos
             if(datoBuscar != datoBuscarAux):
-                alertaLabel["text"] = "El registro: " + datoBuscar + " no existe en la Base de datos!"
+                alertaLabel["text"] = "El registro \"" + datoBuscar + "\" no existe en la Base de datos!"
 
     #Limpiar las cajas de texto
     def limpiar():
