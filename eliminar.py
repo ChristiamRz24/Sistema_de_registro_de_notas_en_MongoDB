@@ -65,6 +65,8 @@ def abrirVentanaEliminar():
             #Comparamos si el registro existe en la Base de datos
             if(datoBuscar != datoBuscarAux):
                 alertaLabel["text"] = "El registro \"" + datoBuscar + "\" no existe en la Base de datos!"
+    
+    #Limpia todos los datos de la tabla
     def limpiarTabla():
         for i in tabla.get_children():
             tabla.delete(i)
