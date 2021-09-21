@@ -4,7 +4,6 @@ import consultar #Ventana consultar registros
 import editar #Ventana editar registros
 import eliminar #Ventana eliminar registros
 import tkinter #Importamos el módulo
-from PIL import ImageTk, Image
 
 def abrirPanelDeControl():
     panelDeControl = tkinter.Tk() #Ventana de la aplicación

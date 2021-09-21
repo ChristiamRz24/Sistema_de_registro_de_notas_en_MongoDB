@@ -2,7 +2,6 @@
 import tkinter #Importamos el módulo
 from bson import json_util, ObjectId
 import json
-from PIL import ImageTk, Image
 from pymongo import MongoClient, collation
 
 ###Conección a la base de datos###
