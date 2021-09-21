@@ -1,5 +1,6 @@
 #Librerías
 import tkinter #Importamos el módulo
+from PIL import ImageTk, Image
 from pymongo import MongoClient, collation
 
 ###Conección a la base de datos###
